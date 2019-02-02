@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CoverSimulator</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,700" rel="stylesheet">
+    <script type="text/javascript" src="https://cdn.rawgit.com/asvd/dragscroll/master/dragscroll.js"></script>
+</head>
+<body>
+    
+    <div class="bg"></div>
+
+    <header id="main-header">
+        <div id="header-logo">
+            <a href="/index.html">CoverPhotoSimulator</a>
+        </div>
+        <div id="header-nav">
+            <ul>
+                <li><a href="/index.html">Facebook</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">YouTube</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        
+        <div id="hero">
+
+            <section id="text">
+                <h1>See how it really looks like</h1>
+            </section>
+
+            <section id="button-container">
+                <div>
+                    <h3>Pick your image!</h3>
+                </div>
+                <div id="choose">
+                    <label for="choose-image-btn">
+                        Choose
+                    </label>
+                    <input id="choose-image-btn" type="file" onchange="previewFile()">
+                </div>
+                <div id="drop-zone"><span>Or drop your image here!</span></div>
+            </section>
+
+        </div>
+
+        <div id="preview" class="target">
+
+            <section id="desktop" class="dragscroll">
+                <span>820px x 312px (205 : 78)</span>
+                <section id="desktop-container" class="dragscroll">
+                    <div class="desktop-bg">
+                        <img id="cover-photo-desktop" width="820" src="" alt="Image preview for desktop">
+                    </div>
+                </section>
+                <p id="hint">Drag the image to re-position it</p>
+            </section>
+
+            <section id="mobile">
+
+                <div  class="iphone">
+                    <div id="mobile-image" class="mobile-bg">
+                        
+                    </div>
+                    <span>640px x 360px (16:9 )</span>
+                </div>
+
+            </section>
+
+        </div>
+        
+    </main>
+
+    <footer>
+        <section id="footer1" class="footer-section">
+                <div class="footer btn">Download a Photoshop template</div>
+            <p><a href="https://www.facebook.com/help/125379114252045" target="_blank" rel="noopener noreferrer">Facebook guidelines</a></p>
+        </section>
+        <section id="footer2" class="footer-section">
+            <div class="footer btn">Download a template image</div>
+            <p id="show-template-btn" onclick="revealExample()">Show the template image</p>
+        </section>
+        <div id="copyright">
+            <span>Designed by: <a href="https://www.creativedigiworks.fi" target="_blank">Creative Digiworks</a></span>
+        </div>
+    </footer>
+    <div id="example">
+        <div class="popup-content">
+            <img id="close" src="/images/close.svg" width="50px" onclick="hideExample()" alt="close">
+            <img src="/images/example.png" alt="Example image">
+        </div>
+    </div>
+    <script src="/js/main.js"></script>
+    <!-- <script type="module">
+        import * as jump from './node_modules/jump.js/dist/jump.js';
+    </script> -->
+</body>
+</html>
