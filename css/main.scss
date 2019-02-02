@@ -9,21 +9,9 @@ $colors: (
 
 
 @function color($color-name) {
-    @return map-get($map: $colors, $key: $color-name)
+    @return map-get($map: $colors, $key: $color-name);
 }
 
-@mixin text {
-    text-shadow: 0 6px 10px rgba($color: #000000, $alpha: .2);
-    transition: text-shadow ease .1s;
-
-    &:hover {
-        text-shadow: 0 3px 8px rgba($color: #000000, $alpha: .2);
-    }
-
-    &:active {
-        text-shadow: 0 1px 3px rgba($color: #000000, $alpha: .2);
-    }
-}
 
 @mixin text-shadow-hover-active {
     text-shadow: 0 6px 10px rgba($color: #000000, $alpha: .2);
@@ -38,14 +26,37 @@ $colors: (
     }
 }
 
-$desktop: 840px;
+$fullDesktop: 1700px;
+$desktopMax: 1600px;
+$desktop: 1150px;
+$tabletMax: 1149px;
+$tablet: 670px;
+$phone: 669px;
 
-@mixin desktop {
+
+@mixin fullDesktopUpper {
     @media (min-width: #{$desktop}) {
         @content;
     }
 }
 
+@mixin desktop {
+    @media (min-width: #{$desktop}) and (max-width: #{$desktopMax}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: #{$tablet}) and (max-width: #{$tabletMax}) {
+        @content;
+    }
+}
+
+@mixin phone {
+    @media (max-width: #{$phone}) {
+        @content;
+    }
+}
 
 /* body, html {
     //height: 100%;
@@ -71,9 +82,18 @@ body {
 header#main-header {
     width: 80%;
     margin: 20px auto 0 auto;
-    position: absolute;
-    left: 0;
-    right: 0;
+    
+
+    /* @include desktop(){
+        position: absolute;
+        left: 0;
+        right: 0;
+    } */
+    @include fullDesktopUpper(){
+        position: absolute;
+        left: 0;
+        right: 0;
+    }
 
     #header-logo{
         display: inline-block;
@@ -93,6 +113,9 @@ header#main-header {
                 box-shadow: inset 0 0 8px 5px rgba($color: #000000, $alpha: .2);
                 transition: box-shadow ease .3s;
             }
+            @include phone(){
+                font-size: 1em;
+            }
         }
     }
 
@@ -101,6 +124,11 @@ header#main-header {
 
         ul {
             list-style-type: none;
+            padding: 0;
+
+            @include phone(){
+                margin: 0;
+            }
             
             li {
                 float: left;
@@ -112,6 +140,9 @@ header#main-header {
 
                     &:hover {
                         color: color(bg);
+                    }
+                    @include phone(){
+                        padding: 0;
                     }
                 }
             }
@@ -126,22 +157,65 @@ main {
 
 div#hero {
     //scroll-snap-align: start;
-    display: grid;
+    //display: grid;
     //position: absolute;
     //top: 0;
     height: 100vh;
     width: 100%;
-    grid-template-columns: 10% 40% 40% 10%;
+    /* grid-template-columns: 10% 40% 40% 10%;
     grid-template-areas:
-        "1 text button 4";
+        "1 text button 4"; */
     justify-content: center;
     align-items: center;
+
+    @include fullDesktopUpper() {
+        display: grid;
+        grid-template-columns: 10% 40% 40% 10%;
+        grid-template-areas:
+        "1 text button 4";
+    }
+    /* @include desktop() {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-areas:
+        "text button";
+    } */
+    @media (min-width: 670px) and (max-width: 1149px) and (orientation: portrait) {
+        
+        
+        section#text {
+            padding-top: 20vh;
+        }
+
+    }
+    @media (min-width: 670px) and (max-width: 1149px) and (orientation: landscape) {
+        
+        
+        section#text {
+            padding-top: 5vh;
+        }
+
+    }
 
     h1 {
         font-size: 5vw;
         color: color(primary-text);
         font-weight: 500;
         text-shadow: 0 10px 30px rgba($color: #000000, $alpha: .2);
+
+        /* @include desktop(){
+            font-size: 8vw;
+        } */
+
+        @include tablet(){
+            width: 60%;
+            margin: .6em auto;
+            font-size: 9vw;
+        }
+
+        @include phone(){
+            font-size: 12vw;
+        }
     }
 
     h3 {
@@ -149,13 +223,33 @@ div#hero {
         color: color(primary-text);
         font-weight: 500;
         text-shadow: 0 10px 30px rgba($color: #000000, $alpha: .2);
-        margin-top: -50px;
-        margin-bottom: 100px;
+        // margin-top: -50px;
+        margin-bottom: 0;
+
+        @include fullDesktopUpper(){
+            font-size: 4vw;
+        }
+
+        @include tablet(){
+            font-size: 5vw;
+        }
+
+        @include phone(){
+            font-size: 8vw;
+        }
+    }
+
+    p {
+        margin-top: 0;
+        margin-bottom: 70px;
+        color: color(primary-text);
+
+        
     }
 
     section#text {
         grid-area: text;
-        padding-left: 1.5em;
+        // padding-left: 1.5em;
         text-align: center;
     
     }
@@ -211,20 +305,51 @@ div#hero {
             span {
                 opacity: .5;
             }
+            @include tablet(){
+                display: none;
+            }
+            @include phone(){
+                display: none;
+            }
         }
     }
 }
 
 div#preview {
     //scroll-snap-align: start;
-    display: grid;
+    //display: grid;
     width: 100%;
-    grid-template-columns: 10% 55% 25% 10%;
+    /* grid-template-columns: 10% 55% 25% 10%;
     grid-template-areas:
         "1 desktop mobile 4";
     justify-content: center;
     align-items: center;
-    padding: 15vh 0 15vh 0;
+    padding: 15vh 0 15vh 0; */
+
+    @include fullDesktopUpper() {
+        display: grid;
+        grid-template-columns: 10% 55% 25% 10%;
+        grid-template-areas:
+        "1 desktop mobile 4";
+        justify-content: center;
+        align-items: center;
+        padding: 15vh 0 15vh 0;
+    }
+    @include desktop() {
+        display: grid;
+        grid-template-columns: 72.5% 27.5%;
+        grid-template-areas:
+        "desktop mobile";
+        justify-content: center;
+        align-items: center;
+        padding: 15vh 0 15vh 0;
+    }
+    @include tablet() {
+        padding: 5vh 0 15vh 0;
+    }
+    @include phone() {
+        padding: 0 0 100px 0;
+    }
     
 
     section#desktop {
@@ -232,6 +357,9 @@ div#preview {
         justify-self: center;
         text-align: center;
 
+        @media screen and (max-width: 821px) {
+            display: none;
+        }
 
         span {
             font-size: 1.2em;
@@ -257,6 +385,11 @@ div#preview {
 
                 img {
                     visibility: hidden;
+                    width: 820px;
+                }
+
+                @include tablet(){
+                    margin: 0 auto;
                 }
             }
         }
@@ -291,6 +424,14 @@ div#preview {
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
+
+
+            @include tablet(){
+                margin: 0 auto;
+            }
+            @include phone(){
+                margin: 0 auto;
+            }
 
             div.mobile-bg {
                 width: 267px;
@@ -331,6 +472,14 @@ footer {
     justify-content: center;
     align-items: center;
     padding: 40px 20px 5px 20px;
+
+    @include phone() {
+        display: block;
+
+       #footer1 {
+            margin-bottom: 50px;
+        }
+    }
 
 
     a{
@@ -427,6 +576,17 @@ footer {
     background-color: rgba(0, 0, 0, 0.47);
     opacity: 0;
     transition: opacity ease .5s;
+
+
+    #template-image {
+
+        @media screen and (max-width: 840px) {
+            width: 90%;
+            height: auto;
+            margin: 0 auto;
+            display: block;
+        }
+    }
 
    
 
