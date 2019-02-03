@@ -210,11 +210,13 @@ div#hero p {
 }
 
 div#hero section#text {
+  -ms-grid-column: 2;
   grid-area: text;
   text-align: center;
 }
 
 div#hero section#button-container {
+  -ms-grid-column: 3;
   grid-area: button;
   -ms-grid-column-align: center;
       justify-self: center;
@@ -351,6 +353,7 @@ div#preview {
 }
 
 div#preview section#desktop {
+  -ms-grid-column: 2;
   grid-area: desktop;
   -ms-grid-column-align: center;
       justify-self: center;
@@ -370,6 +373,7 @@ div#preview section#desktop span {
 
 div#preview section#desktop section#desktop-container {
   overflow: scroll;
+  -ms-overflow-style: none;
 }
 
 div#preview section#desktop section#desktop-container::-webkit-scrollbar {
@@ -440,6 +444,7 @@ div#preview section#desktop p#hint {
 }
 
 div#preview section#mobile {
+  -ms-grid-column: 3;
   grid-area: mobile;
   -ms-grid-column-align: center;
       justify-self: center;
@@ -487,6 +492,8 @@ div#preview section#mobile div.iphone span {
 }
 
 div#preview #bottom {
+  -ms-grid-column-span: 2;
+  -ms-grid-row: 2;
   -ms-grid-column: span 2;
       grid-column-start: span 2;
   -ms-grid-column-align: center;
@@ -498,14 +505,15 @@ div#preview #bottom {
 
 @media (min-width: 1150px) {
   div#preview #bottom {
-    -ms-grid-column: span 4;
-        grid-column-start: span 4;
+    -ms-grid-column: 2;
+    grid-column-start: span 4;
     max-width: 1000px;
   }
 }
 
 @media (min-width: 670px) and (max-width: 1149px) {
   div#preview #bottom {
+    -ms-grid-column: 1;
     max-width: 80%;
     margin: 50px auto 0 auto;
   }
@@ -602,6 +610,8 @@ footer .footer-section {
 }
 
 footer #copyright {
+  -ms-grid-column-span: 2;
+  -ms-grid-row: 2;
   -ms-grid-column: span 2;
       grid-column-start: span 2;
   text-align: center;
