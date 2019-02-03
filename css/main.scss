@@ -603,8 +603,10 @@ footer {
 }
 
 #example {
-    position: absolute;
-    left: -5000px;
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
     display: grid;
     justify-content: center;
     align-items: center;
@@ -628,9 +630,9 @@ footer {
    
 
     #close {
-        position: absolute;
-        top: -5000px;
-        left: -5000px;
+        position: fixed;
+        top: 5px;
+        right: 5px;
         cursor: pointer;
     }
 }

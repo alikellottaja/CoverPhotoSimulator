@@ -124,14 +124,8 @@ const popUpClose = document.getElementById('close');
 const popUp = document.getElementById('example');
 
 function revealExample() {
-    popUp.style.position = 'fixed';
-    popUp.style.top = '0';
-    popUp.style.left = '0';
+    popUp.style.visibility = 'visible';
     popUp.style.opacity = '1';
-    popUpClose.style.position = 'fixed';
-    popUpClose.style.top = '5px';
-    popUpClose.style.right = '5px';
-    popUpClose.style.left = 'unset';
 }
 
 popUp.addEventListener("click", function( e ) {
@@ -142,14 +136,8 @@ popUp.addEventListener("click", function( e ) {
 });
 
  function hideExample() {
-    popUp.style.position = 'absolute';
-    popUp.style.top = '-5000px';
-    popUp.style.left = '-5000px';
+    popUp.style.visibility = 'hidden';
     popUp.style.opacity = '0';
-    popUpClose.style.position = 'absolute';
-    popUpClose.style.top = '-5000px';
-    popUpClose.style.right = 'unset';
-    popUpClose.style.left = '-5000px';
 }
 
 function isImage(file){
