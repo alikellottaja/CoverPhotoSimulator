@@ -376,6 +376,13 @@ div#preview section#desktop section#desktop-container::-webkit-scrollbar {
   display: none;
 }
 
+@media (min-width: 670px) and (max-width: 1149px) {
+  div#preview section#desktop section#desktop-container {
+    max-width: 820px;
+    margin: 0 auto;
+  }
+}
+
 div#preview section#desktop section#desktop-container div.desktop-bg {
   width: 820px;
   height: 312px;
@@ -462,7 +469,7 @@ div#preview section#mobile div.iphone {
 
 div#preview section#mobile div.iphone div.mobile-bg {
   width: 267px;
-  height: 153px;
+  height: 150px;
   position: relative;
   top: 73px;
   left: 17px;
@@ -477,6 +484,38 @@ div#preview section#mobile div.iphone span {
   position: relative;
   top: 75px;
   color: #EFEFEF;
+}
+
+div#preview #bottom {
+  -ms-grid-column: span 2;
+      grid-column-start: span 2;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  margin-top: 50px;
+  color: #EFEFEF;
+  text-align: center;
+}
+
+@media (min-width: 1150px) {
+  div#preview #bottom {
+    -ms-grid-column: span 4;
+        grid-column-start: span 4;
+    max-width: 1000px;
+  }
+}
+
+@media (min-width: 670px) and (max-width: 1149px) {
+  div#preview #bottom {
+    max-width: 80%;
+    margin: 50px auto 0 auto;
+  }
+}
+
+@media (max-width: 669px) {
+  div#preview #bottom {
+    max-width: 80%;
+    margin: 50px auto 0 auto;
+  }
 }
 
 footer {
@@ -538,10 +577,22 @@ footer section#footer1 {
   grid-area: footer1;
 }
 
+footer section#footer1 div a.download {
+  text-decoration: none;
+  color: #EFEFEF;
+  text-shadow: none;
+}
+
 footer section#footer2 {
   -ms-grid-row: 1;
   -ms-grid-column: 2;
   grid-area: footer2;
+}
+
+footer section#footer2 div a.download {
+  text-decoration: none;
+  color: #EFEFEF;
+  text-shadow: none;
 }
 
 footer .footer-section {

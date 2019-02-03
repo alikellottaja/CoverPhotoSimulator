@@ -373,6 +373,10 @@ div#preview {
                 display: none;
             }
 
+            @include tablet(){
+                max-width: 820px;
+                margin: 0 auto;
+            }
 
             div.desktop-bg {
                 width: 820px;
@@ -435,7 +439,7 @@ div#preview {
 
             div.mobile-bg {
                 width: 267px;
-                height: 153px;
+                height: 150px;
                 position: relative;
                 top: 73px;
                 left: 17px;
@@ -458,6 +462,27 @@ div#preview {
     /* #desktop::-webkit-scrollbar {
         display: none;
     } */
+
+    #bottom {
+        grid-column-start: span 2;
+        justify-self: center;
+        margin-top: 50px;
+        color: color(primary-text);
+        text-align: center;
+
+        @include fullDesktopUpper() {
+            grid-column-start: span 4; 
+            max-width: 1000px;
+        }
+        @include tablet() {
+            max-width: 80%;
+            margin: 50px auto 0 auto;
+        }
+        @include phone() {
+            max-width: 80%;
+            margin: 50px auto 0 auto;
+        }
+    }
 }
 
 footer {
@@ -506,10 +531,22 @@ footer {
 
     section#footer1 {
         grid-area: footer1;
+
+        div a.download {
+            text-decoration: none;
+            color: color(primary-text);
+            text-shadow: none;
+        }
     }
 
     section#footer2 {
         grid-area: footer2;
+        
+        div a.download {
+            text-decoration: none;
+            color: color(primary-text);
+            text-shadow: none;
+        }
     }
 
     .footer-section {

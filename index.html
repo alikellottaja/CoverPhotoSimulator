@@ -75,17 +75,24 @@
 
             </section>
 
+            <section id="bottom">
+
+                    <p>Use this tool to preview your image as a Facebook cover photo. You can use .jpg, .png and .gif formats. Your image is not uploaded nor saved anywhere, it is just read from your computer.</p>
+
+            </section>
+
         </div>
+
         
     </main>
 
     <footer>
         <section id="footer1" class="footer-section">
-                <div id="button" class="footer btn">Download a Photoshop template</div>
+                <div id="button" class="footer"><a class="download btn" href="/downloads/" download="FB_cover_photo_template.psd">Download a Photoshop template</a></div>
             <p><a href="https://www.facebook.com/help/125379114252045" target="_blank" rel="noopener noreferrer">Facebook guidelines</a></p>
         </section>
         <section id="footer2" class="footer-section">
-            <div class="footer btn">Download a template image</div>
+            <div class="footer"><a class="download btn" href="/images/" download="example.png">Download a template image</a></div>
             <p id="show-template-btn" onclick="revealExample()">Show the template image</p>
         </section>
         <div id="copyright">
@@ -102,12 +109,6 @@
  
         <script type="module">
             import jump from './node_modules/jump.js/dist/jump.module.js';
-            
-            var button = document.getElementById('button');
-            button.addEventListener('click', function (event) { 
-                jump('.target')
-                console.log('click')
-            });
 
             document.addEventListener('DOMContentLoaded',function() {
                 document.querySelector('input').onchange=scroll;
